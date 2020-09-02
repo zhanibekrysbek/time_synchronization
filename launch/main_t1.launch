@@ -1,0 +1,6 @@
+<launch>
+
+	<node name="main_node" pkg="time_synchronization" type="main_node.py" />
+	<node name="talker_1" pkg="time_synchronization" type="talker_1.py"  output="screen" />
+
+</launch>
