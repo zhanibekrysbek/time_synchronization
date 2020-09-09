@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
-
 import rosbag
 import pandas as pd 
 import argparse
-# import rospy
 import sys
-
+import numpy as np
 
 
 def process_topic(tlk_gen):
@@ -28,7 +26,7 @@ def process_topic(tlk_gen):
 	tlk_df['ros_time'] = rtime
 	tlk_df['local_time'] = lt
 	tlk_df['words'] = words
-	tlk_df.index = ms_ids
+	tlk_df.index = np.arange(len(ms_ids))
 
 	return tlk_df
 
@@ -36,7 +34,7 @@ def process_topic(tlk_gen):
 
 def process_rosbag_file(fname):
 
-	print('Processing file: %s', fname)
+	print(' <<< Processing file: %s  >>>'%fname)
 
 	bag = rosbag.Bag(fname)
 
@@ -44,18 +42,18 @@ def process_rosbag_file(fname):
 	tlk2 = bag.read_messages('talker_2')
 
 	tlk_1_df = process_topic(tlk1)
+	print('< Done with talker_1 >')
 	tlk_2_df = process_topic(tlk2)
+	print('< Done with talker_1 >')
 
 	base_path = fname.split('.bag')[0]
 
-	tlk_1_df.to_pickle(base_path+'_talker_1.pkl')
-	tlk_2_df.to_pickle(base_path+'_talker_2.pkl')
+	tlk_1_df.to_pickle(base_path + '_talker_1.pkl')
+	tlk_2_df.to_pickle(base_path + '_talker_2.pkl')
 
 
 
 def main():
-
-	# rospy.init_node('rosbag_parser')
 
 	arg_fmt = argparse.RawDescriptionHelpFormatter
 

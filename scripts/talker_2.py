@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import rospy
-import subprocess
 import time
 from datetime import datetime
 from std_msgs.msg import Float64, String
@@ -12,6 +11,7 @@ from talker import Talker
 
 
 def main():
+
     rospy.init_node("talker_2")
     rospy.on_shutdown(stop)
 

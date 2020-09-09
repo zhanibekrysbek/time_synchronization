@@ -10,7 +10,7 @@ from time_synchronization.srv import talker1, talker2
 class talker_handle(object):
 
 	def __init__(self):
-		# wait until both services will be available
+		# wait until both services will be available in the network
 		rospy.wait_for_service('talker1')
 		rospy.wait_for_service('talker2')
 

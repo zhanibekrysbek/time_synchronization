@@ -8,7 +8,7 @@ from time_synchronization.srv import talker1, talker2
 
 class Talker(object):
 
-    def __init__(self, name, rate = 50):
+    def __init__(self, name, rate = 300):
         # false: silent
         # true: talking
         self.state = False
@@ -21,7 +21,7 @@ class Talker(object):
         if req.req == 'talk':
             self.state = True
             self.t0 = rospy.get_time()
-            
+
             rospy.loginfo('%s: talking', self.name)
             return 'Starting to talk'
 
@@ -39,7 +39,7 @@ class Talker(object):
         while not rospy.is_shutdown():
 
             if self.state:
-                now = rospy.get_time() - self.t0
+                now = rospy.get_time()
 
                 msg = talker_msg()
                 msg.time = now
