@@ -44,7 +44,7 @@ def process_rosbag_file(fname):
 	tlk_1_df = process_topic(tlk1)
 	print('< Done with talker_1 >')
 	tlk_2_df = process_topic(tlk2)
-	print('< Done with talker_1 >')
+	print('< Done with talker_2 >')
 
 	base_path = fname.split('.bag')[0]
 

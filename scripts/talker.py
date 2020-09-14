@@ -8,7 +8,7 @@ from time_synchronization.srv import talker1, talker2
 
 class Talker(object):
 
-    def __init__(self, name, rate = 300):
+    def __init__(self, name, rate = 100):
         # false: silent
         # true: talking
         self.state = False
