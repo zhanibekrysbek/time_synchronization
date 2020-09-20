@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  geometry_msgs
   message_generation
 )
 
@@ -51,6 +52,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
    FILES
    talker_msg.msg
+   imu_msg.msg
 #   Message2.msg
  )
 
@@ -59,6 +61,7 @@ add_message_files(
    FILES
    talker1.srv
    talker2.srv
+   imu_srv.srv
  )
 
 ## Generate actions in the 'action' folder
@@ -72,6 +75,7 @@ add_message_files(
 generate_messages(
    DEPENDENCIES
    std_msgs
+   geometry_msgs
  )
 
 ################################################
@@ -106,9 +110,11 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES time_synchronization
+#  LIBRARIES geometry_msgs
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
    DEPENDS message_runtime
+   CATKIN_DEPENDS geometry_msgs
 )
 
 ###########

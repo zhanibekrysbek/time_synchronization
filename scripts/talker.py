@@ -1,6 +1,7 @@
+#!/usr/bin/env python
+
 import rospy
 import time
-from datetime import datetime
 from std_msgs.msg import Float64, String
 from time_synchronization.msg import talker_msg
 from time_synchronization.srv import talker1, talker2
