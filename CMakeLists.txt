@@ -59,8 +59,6 @@ add_message_files(
 ## Generate services in the 'srv' folder
  add_service_files(
    FILES
-   talker1.srv
-   talker2.srv
    imu_srv.srv
  )
 
